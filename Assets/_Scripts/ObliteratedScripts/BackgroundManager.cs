@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class BackgroundManager : MonoBehaviour {
-
+    //obliterated;
     public Sprite[] bg;
     public GameObject bg1;
     public GameObject bg2;

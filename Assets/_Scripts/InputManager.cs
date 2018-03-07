@@ -186,7 +186,6 @@ public  class InputManager : MonoBehaviour{
         }
 
     }
-
     bool SameArray(int[] a, int[] b)
     {
         if (a.Length != b.Length) return false;
@@ -198,9 +197,10 @@ public  class InputManager : MonoBehaviour{
             }
             return true;
         }
-        
-    }
-     bool DifferentInput()
+
+    }//obliterated
+
+    bool DifferentInput()
     {
         for (int i=0; i < currentInput.Length; ++i)
         {
@@ -208,7 +208,8 @@ public  class InputManager : MonoBehaviour{
         }
 
         return false;
-    }
+    }//obliterated
+
 
     public void ExecuteAnimation(int player, int pose)
     {
@@ -334,6 +335,7 @@ public  class InputManager : MonoBehaviour{
 
 
 
-    }
+    }//obliterated
+
 
 }

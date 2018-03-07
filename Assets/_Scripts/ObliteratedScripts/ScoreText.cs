@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class ScoreText : MonoBehaviour {
-
+    //obliterated
     public GameManager gameManager;
     Text t;
 

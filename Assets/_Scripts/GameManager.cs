@@ -7,6 +7,16 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour {
 
 
+    //######### NEW CODING #########
+    public int perfectScore;
+    public float toleranceToPerfect;
+    public int score = 0;
+
+    public TimeController tc;
+    public GUIController GUIc;
+    public InputController ic;
+
+    //##############################
     public GameObject bSO;
     public AudioClip music;
     public AudioClip baseBeats;
@@ -24,7 +34,6 @@ public class GameManager : MonoBehaviour {
 
     public List<Phase> phases; //Phase, float
 
-    public int score=0;
     public float rate;
     public float epsilon;
 
@@ -37,6 +46,42 @@ public class GameManager : MonoBehaviour {
      bool death = false;
 
     // Use this for initialization
+    //######### NEW CODING #########
+    public void CorrectBeat()
+    {
+        float percentageToPerfect = 1 - tc.distanceToPerfect;
+        tc.solvedBeat = true;
+
+        if (percentageToPerfect > toleranceToPerfect)
+        {
+            score += perfectScore;
+
+            GUIc.SolveBeat(true, score);
+        }
+        else
+        {
+            score += (int)(perfectScore * percentageToPerfect);
+
+            GUIc.SolveBeat(false, score);
+
+        }
+
+    }
+
+    public void GameOver()
+    {
+        GUIc.GameOverFeedback();
+        ic.gameOver = true;
+        
+    }
+
+    public void TryAgain()
+    {
+        tc.Start();
+        ic.gameOver = false;
+    }
+    //##############################
+
     void Start () {
 
         //steps = new List<Step>();
