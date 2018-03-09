@@ -8,7 +8,7 @@ public class SceneManagement: MonoBehaviour {
 	
 	// Update is called once per frame
 	public   void GoToGameplay () {
-        SceneManager.LoadScene("Gameplay");
+        SceneManager.LoadScene("NewGameplay");
         }
     public   void GoToCredits()
     {

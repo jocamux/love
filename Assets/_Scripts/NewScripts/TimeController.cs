@@ -6,14 +6,17 @@ public class TimeController : MonoBehaviour {
 
     //OtherComponents
     BeatController bc;
+    public GUIController GUIc;
+    public GameManager gm;
+    public InputController ic;
 
     //Gameplay Parameters
-    int currentBeat;
-    int currentPhase;
+    public int currentBeat;
+    public int currentPhase;
     public float toleranceZone;
     public float distanceToPerfect; //from 0 (perfect) to 1 (tolerance Zone)
     public Song currentSong;
-    public bool transitionPhase; //first should be true
+    public bool transitionPhase; //first should be true;
     public bool toleratesInput;
     public bool solvedBeat; //true if the beat input has ended successfully; will be private
     public bool checkedBeat; //true if the script checked after tolerance; restarst in the beginning of beat. Will be private;
@@ -47,10 +50,15 @@ public class TimeController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        currentTime += Time.deltaTime;
-        currentBeatTime = currentTime % stepsInBeat;
 
-        if(currentBeatTime >= correctHitBeat*(beatDuration/stepsInBeat)-toleranceZone &&
+        if (gm.gameOver) return;
+        currentTime += Time.deltaTime;
+        currentBeatTime = currentTime % beatDuration;
+        if (transitionPhase)
+        {
+            
+        }
+        else if(currentBeatTime >= correctHitBeat*(beatDuration/stepsInBeat)-toleranceZone &&
            currentBeatTime <= correctHitBeat * (beatDuration / stepsInBeat) + toleranceZone)
         {
             distanceToPerfect = Mathf.Abs(correctHitBeat * (beatDuration / stepsInBeat) - currentBeatTime) / (toleranceZone);
@@ -64,7 +72,7 @@ public class TimeController : MonoBehaviour {
                 checkedBeat = true;
                 if(!solvedBeat)
                 {
-                    
+                    gm.GameOver();
                 }
             }
         }
@@ -84,6 +92,7 @@ public class TimeController : MonoBehaviour {
 
     void AddBeat()
     {
+
         currentBeatInThisPhase++;
         currentBeat++;
         checkedBeat = false;
@@ -93,18 +102,28 @@ public class TimeController : MonoBehaviour {
         {
             EndSong();
         }
-        if (currentBeatInThisPhase > beatPerPhase[currentPhase])
+        if (currentBeatInThisPhase == beatPerPhase[currentPhase])
         {
             currentBeatInThisPhase = 0;
             currentPhase++;
             UpdatePhase(currentPhase);
+        }
+        if (!transitionPhase)
+        {
+            gm.SendOrder(currentSong, currentPhase);
         }
 
     }
 
     void UpdatePhase(int currentPhase)
     {
-        toleratesInput = currentSong.toleratesInput[currentPhase];
+
+        transitionPhase = !currentSong.toleratesInput[currentPhase];
+        if (transitionPhase)
+        {
+            Debug.Log(currentPhase);
+            GUIc.PlayChangePhaseSound(currentPhase / 2);
+        }
     }
 
     void EndSong()

@@ -11,13 +11,15 @@ public class GameManager : MonoBehaviour {
     public int perfectScore;
     public float toleranceToPerfect;
     public int score = 0;
+    public bool gameOver;
 
     public TimeController tc;
     public GUIController GUIc;
     public InputController ic;
+    public Step currentStep;
 
     //##############################
-    public GameObject bSO;
+    /*public GameObject bSO;
     public AudioClip music;
     public AudioClip baseBeats;
     public InputManager im;
@@ -43,14 +45,16 @@ public class GameManager : MonoBehaviour {
     public float time = 0;
 
     public bool timeToStep = false;
-     bool death = false;
+    bool death = false;*/
 
     // Use this for initialization
     //######### NEW CODING #########
+    #region NewCoding
     public void CorrectBeat()
     {
-        float percentageToPerfect = 1 - tc.distanceToPerfect;
         tc.solvedBeat = true;
+
+        float percentageToPerfect = 1 - tc.distanceToPerfect;
 
         if (percentageToPerfect > toleranceToPerfect)
         {
@@ -67,22 +71,42 @@ public class GameManager : MonoBehaviour {
         }
 
     }
+    
+    public void SolveBeat()
+    {
+        if (ic.CompareInput())
+        {
+            CorrectBeat();
+        }
+        else
+        {
+            GameOver();
+        }
+    }
 
     public void GameOver()
     {
+        Debug.Log("gameOver");
         GUIc.GameOverFeedback();
-        ic.gameOver = true;
-        
+        gameOver = true;
+
     }
 
     public void TryAgain()
     {
-        tc.Start();
-        ic.gameOver = false;
+        SceneManager.LoadScene("NewGameplay");
     }
-    //##############################
 
-    void Start () {
+    public void SendOrder(Song currentSong, int currentPhase)
+    {
+        currentStep = currentSong.songPhasesSteps[(currentPhase - 1) / 2].GetRandomStep();
+        GUIc.PlayOrderSound(currentStep);
+        ic.AddPossibleInputs(currentStep.getRequiredInput().GetKeyCode());
+    }
+
+    //##############################
+    #endregion
+    /*void Start() {
 
         //steps = new List<Step>();
         //steps = InitializeSteps();
@@ -90,7 +114,7 @@ public class GameManager : MonoBehaviour {
 
 
     }
-	
+
     public void Die()
     {
         AudioSource thisstuff = bSO.GetComponent<AudioSource>();
@@ -109,7 +133,7 @@ public class GameManager : MonoBehaviour {
 
     public void Restart()
     {
-        Invoke("RestartLayout",0f);
+        Invoke("RestartLayout", 0f);
         /*AudioSource thisstuff = bSO.GetComponent<AudioSource>();
         thisstuff.Stop();
         thisstuff.loop = false;
@@ -121,80 +145,81 @@ public class GameManager : MonoBehaviour {
         timeToStep = false;
         score = 0;
         im.lose = false;
-        im.win = false;*/        
+        im.win = false;
     }
 
 
-	// Update is called once per frame
-	void Update () {
-        if (!death)
-        {
-            time += Time.deltaTime;
+    // Update is called once per frame
 
-            if (time % rate > -epsilon && time % rate < epsilon && timeToStep)
+
+    void Update() {
+            if (!death)
             {
-                timeToStep = false;
-                Phase p = WhichPhase();
-                Debug.Log(WhichPhase());
-                if (p == null)
-                {
+                time += Time.deltaTime;
 
-                    //win game
-                }
-                Step s = p.GetRandomStep();
-                Debug.Log(s.ToString());
-                //AudioClip au = null;
-                foreach (Step a in steps)
+                if (time % rate > -epsilon && time % rate < epsilon && timeToStep)
                 {
-                    if (a == s)
+                    timeToStep = false;
+                    Phase p = WhichPhase();
+                    Debug.Log(WhichPhase());
+                    if (p == null)
                     {
-                        //au = a.audioStep;
+
+                        //win game
                     }
+                    Step s = p.GetRandomStep();
+                    Debug.Log(s.ToString());
+                    //AudioClip au = null;
+                    foreach (Step a in steps)
+                    {
+                        if (a == s)
+                        {
+                            //au = a.audioStep;
+                        }
+                    }
+                    //Que suene el au
+                    PlayAudio(s);
+                    im.correctList = s.getRequiredInput().GetKeyCode();
+                    im.affectedPlayer = s.affectedPlayers;
+                    im.currentStep = s;
+                    //affectedplayers
+
                 }
-                //Que suene el au
-                PlayAudio(s);
-                im.correctList = s.getRequiredInput().GetKeyCode();
-                im.affectedPlayer = s.affectedPlayers;
-                im.currentStep = s;
-                //affectedplayers
+
+                else if (time % rate >= epsilon)
+                {
+                    timeToStep = true;
+                }
+
+                if (time % rate > rate * 3.0 / 4.0 - epsilon && time % rate < rate * 3.0 / 4.0 + epsilon && !im.win)
+                {
+                    im.pressTime = true;
+                }
+
+                else im.pressTime = false;
+
+                if (time % rate > rate * 3.0 / 4.0 + epsilon && time % rate < rate * 3.0 / 4.0 + 2 * epsilon)
+                {
+                    im.dieTime = true;
+                    im.win = false;
+                }
+
+                else im.dieTime = false;
+
+
 
             }
-
-            else if (time % rate >= epsilon)
+            else
             {
-                timeToStep = true;
+                if (Input.GetKey(KeyCode.Space))
+                {
+                    Restart();
+                    anim.SetTrigger("Restart");
+                }
             }
-
-            if (time % rate > rate * 3.0 / 4.0 - epsilon && time % rate < rate * 3.0 / 4.0 + epsilon && !im.win)
-            {
-                im.pressTime = true;
-            }
-
-            else im.pressTime = false;
-
-            if (time % rate > rate * 3.0 / 4.0 + epsilon && time % rate < rate * 3.0 / 4.0 + 2 * epsilon)
-            {
-                im.dieTime = true;
-                im.win = false;
-            }
-
-            else im.dieTime = false;
-
-
-
-        }
-        else
-        {
-            if (Input.GetKey(KeyCode.Space))
-            {
-                Restart();
-                anim.SetTrigger("Restart");
-            }
-        }
-
-
     }
 
+    
 
     void RestartLayout()
     {
@@ -234,7 +259,7 @@ public class GameManager : MonoBehaviour {
     {
         return new List<Player> { new Player(), new Player() };
     }
-    */
+    
 
     private List<Phase> InitializePhases()  //Phase, second
     {
@@ -261,7 +286,7 @@ public class GameManager : MonoBehaviour {
         return a;
 
     }
-
+    
     public void PlayAudio(Step step)
     {
         int affectedPlayer = step.affectedPlayers;
@@ -287,7 +312,7 @@ public class GameManager : MonoBehaviour {
             p2.clip = step.audioStep;
             p2.Play();
         }
-    }
+    } //Obliterated
     private List<Step> InitializeSteps() //Step, Audio
     {
         List<Step> a = new List<Step>(numberOfSteps);
@@ -303,8 +328,7 @@ public class GameManager : MonoBehaviour {
         }
         return a; 
 
-    }
-
+    }*/
     /*private List<Inputs> InitializeInputs()
     {
         List<Inputs> a = new List<Inputs>(19);

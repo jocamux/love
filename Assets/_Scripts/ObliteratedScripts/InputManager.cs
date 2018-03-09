@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public  class InputManager : MonoBehaviour{
 
+    //obliterated?
     public BackgroundManager bg; 
     public GameManager gameManager;
     public SceneManagement sc;
@@ -22,54 +23,48 @@ public  class InputManager : MonoBehaviour{
     public bool win = false;
     public bool lose = false;
     public List<KeyCode> correctList = new List<KeyCode>();
-    // Use this for initialization
-    static int[] correctInput = new int[8] { 0, 0, 0, 0, 0, 0, 0, 0 };
-    static int[] currentInput = new int [8]{ 0, 0, 0, 0, 0, 0, 0, 0 };
+    public static int[] correctInput = new int[8] { 0, 0, 0, 0, 0, 0, 0, 0 };
+    public static int[] currentInput = new int [8]{ 0, 0, 0, 0, 0, 0, 0, 0 };
 
-	 void Start () {
-      
-	}
-	
-	// Update is called once per frame
-	 void Update () {
-        if (pressTime)
-        {
-            FillArrays();
-        }
+    /*void Update () {
+       if (pressTime)
+       {
+           FillArrays();
+       }
 
-        else if (dieTime)
-        {
-            if (!SameArray(correctInput, currentInput) && !lose)
-            {
-                //you died
-                gameManager.Die();
-                //SceneManager.LoadScene(1);
-                lose = true;
-                
+       else if (dieTime)
+       {
+           if (!SameArray(correctInput, currentInput) && !lose)
+           {
+               //you died
+               gameManager.Die();
+               //SceneManager.LoadScene(1);
+               lose = true;
 
-                //  Debug.Log("moriste wey");
-            }
+
+               //  Debug.Log("moriste wey");
+           }
 
 
 
-        }
-        /*
-        foreach (char c in Input.inputString)
-        {
-            foreach(KeyCode k in correctList )
-            //if("Alpha"+c ==                    )
-            {
-                Debug.Log("Right");
-            }
-        }
-        */
+       }
+
+       foreach (char c in Input.inputString)
+       {
+           foreach(KeyCode k in correctList )
+           //if("Alpha"+c ==                    )
+           {
+               Debug.Log("Right");
+           }
+       }
+       
 
 
-        //if (Input.GetKeyDown ==)
-		//if not press time-> die
-	}
+    //if (Input.GetKeyDown ==)
+    //if not press time-> die
+}
 
-    void FillArrays()
+void FillArrays()
     {
         //Filling correct list
         correctInput = new int[]{ 0, 0, 0, 0, 0, 0, 0, 0};
@@ -215,7 +210,7 @@ public  class InputManager : MonoBehaviour{
     {
         /*switch (pose)
         {
-            case 1:*/
+            case 1:
                 if (player == 0)
                 {
                     P1.nextPose = pose;
@@ -331,11 +326,11 @@ public  class InputManager : MonoBehaviour{
               P2.GoToPose7 = true;
           }
           break;
-  }*/
+  }
 
 
 
     }//obliterated
 
-
+    */
 }

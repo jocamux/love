@@ -6,11 +6,14 @@ public class Song : MonoBehaviour {
 
     AudioSource audioSource;
     public AudioClip audioClip;
+    public AudioClip[] changePhaseClips;
     public float beatDuration;
     public int stepsInBeat;
     public int[] beatPerPhase; //Lenght = number of phases;
     public bool[] toleratesInput; 
     public int correctHitBeat;
+
+    public Phase[] songPhasesSteps;
 
     // Use this for initialization
     void Start () {
@@ -20,6 +23,7 @@ public class Song : MonoBehaviour {
         }
         audioSource = GetComponent<AudioSource>();
         audioSource.clip = audioClip;
+        audioSource.Play();
 	}
 	
 	// Update is called once per frame

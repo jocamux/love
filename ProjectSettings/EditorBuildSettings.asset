@@ -9,8 +9,5 @@ EditorBuildSettings:
     path: Assets/_Scenes/Start.unity
     guid: baba3f57c0b9446428c7089af59150c2
   - enabled: 1
-    path: Assets/_Scenes/Gameplay.unity
-    guid: b508a8d7b082de94c923d2fe94007144
-  - enabled: 1
-    path: Assets/_Scenes/Death.unity
-    guid: 30351280b41208046a2dc5d7062dc54b
+    path: Assets/_Scenes/NewGameplay.unity
+    guid: 31ce9c383caf8a347a7647fcc8a5baff

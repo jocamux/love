@@ -6,7 +6,7 @@ public class Silouette : MonoBehaviour
 {
 
     public Player _player;
-    public GameManager _gameManager;
+    public GameManager gm;
     public SpriteMask _playerMask;
     public Animator animator;
     float time;

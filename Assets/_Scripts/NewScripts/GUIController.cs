@@ -9,6 +9,7 @@ public class GUIController : MonoBehaviour {
     public TimeController tc;
     public BeatController bc;
     public Animator cameraAnimator;
+    public GameManager gm;
 
     //ScreenElements
     public Animator canvasAnimator;
@@ -23,7 +24,10 @@ public class GUIController : MonoBehaviour {
 
     //AudioElements
     public AudioSource bso;
-
+    public AudioSource P1Audio;
+    public AudioSource P2Audio;
+    public AudioSource changePhaseAudio;
+    public AudioClip[] changePhaseClips;
     public AudioClip gameOverMusic;
 
     //Pools
@@ -32,8 +36,9 @@ public class GUIController : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-		
-	}
+        changePhaseClips = tc.currentSong.changePhaseClips;
+
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -43,7 +48,7 @@ public class GUIController : MonoBehaviour {
     public void SolveBeat(bool perfect, int currentScore)
     {
   
-        Step step = bc.currentStep;
+        Step step = gm.currentStep;
         switch(step.affectedPlayers)
         {
             case 0:
@@ -84,13 +89,45 @@ public class GUIController : MonoBehaviour {
 
     public void GameOverFeedback()
     {
+
+
+        P2.nextPose = 9;
+        P2.hasToChange = true;
         bso.Stop();
         bso.clip = gameOverMusic;
-        bso.loop = true;
+        //bso.loop = true;
         bso.Play();
 
         canvasAnimator.SetTrigger("TryAgain");
         
+    }
+
+    public void PlayOrderSound(Step step)
+    {
+        int affectedPlayer = step.affectedPlayers;
+        switch (affectedPlayer)
+        {
+            case 0:
+                P1Audio.clip = step.audioStep;
+                P1Audio.Play();
+                break;
+            case 1:
+                P2Audio.clip = step.audioStep;
+                P2Audio.Play();
+                break;
+            case 2:
+                P1Audio.clip = step.audioStep;
+                P1Audio.Play();
+                P2Audio.clip = step.audioStep;
+                P2Audio.Play();
+                break;
+        }
+
+    }
+    public void PlayChangePhaseSound(int startingPhase)
+    {
+        changePhaseAudio.clip = changePhaseClips[startingPhase];
+        changePhaseAudio.Play();
     }
            
 }
