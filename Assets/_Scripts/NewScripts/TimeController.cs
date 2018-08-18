@@ -58,12 +58,20 @@ public class TimeController : MonoBehaviour {
         {
             
         }
-        else if(currentBeatTime >= correctHitBeat*(beatDuration/stepsInBeat)-toleranceZone &&
+        else if (currentBeatTime > 0.1f && currentBeatTime < correctHitBeat * (beatDuration / stepsInBeat) + toleranceZone)
+        {
+            toleratesInput = true;
+            distanceToPerfect = Mathf.Abs(correctHitBeat * (beatDuration / stepsInBeat) - currentBeatTime) / (toleranceZone);
+
+        }
+        /*When implementing a tolerance zone
+         * else if(currentBeatTime >= correctHitBeat*(beatDuration/stepsInBeat)-toleranceZone &&
            currentBeatTime <= correctHitBeat * (beatDuration / stepsInBeat) + toleranceZone)
         {
             distanceToPerfect = Mathf.Abs(correctHitBeat * (beatDuration / stepsInBeat) - currentBeatTime) / (toleranceZone);
             toleratesInput = true;
         }
+        */
         else if(currentBeatTime > correctHitBeat * (beatDuration / stepsInBeat) + toleranceZone)
         {
             toleratesInput = false;

@@ -55,6 +55,10 @@ public class GameManager : MonoBehaviour {
         tc.solvedBeat = true;
 
         float percentageToPerfect = 1 - tc.distanceToPerfect;
+        if(percentageToPerfect<0)
+        { Debug.Log("check this bug");
+            percentageToPerfect = 1;
+        }
 
         if (percentageToPerfect > toleranceToPerfect)
         {
