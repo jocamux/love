@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcbd08d59cf040e498f1f79c2a028ff8, type: 3}
+  m_Name: ArrowUp
+  m_EditorClassIdentifier: 
+  namePose: 
+  justOnce: 1
+  initPose:
+  - {fileID: 21300000, guid: 2a7ec757e1a05dd41af566d88bc18843, type: 3}
+  - {fileID: 21300000, guid: d4a388da2157a59428a3bb0734771ef9, type: 3}
+  - {fileID: 21300000, guid: a5ffa5a442a23904880ae3d58b0ef123, type: 3}
+  - {fileID: 21300000, guid: dc757b684a5728941b2431ae7c24771a, type: 3}
+  - {fileID: 21300000, guid: 023fbc3ef98d5f14cb2df8f7cfdc436a, type: 3}
+  - {fileID: 21300000, guid: 043c755a391109040bf3d25b7d6ce7bd, type: 3}
+  - {fileID: 21300000, guid: ed64471c2eb69e344bfcc19df3577c11, type: 3}
+  - {fileID: 21300000, guid: 4b84a4ba73f143544b67fd9e9e5ebbed, type: 3}
+  - {fileID: 21300000, guid: e062efd1c814996419eee44134f8be99, type: 3}
+  loopPose: []
+  extra: []

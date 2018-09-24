@@ -13,7 +13,7 @@ OcclusionCullingSettings:
 --- !u!104 &2
 RenderSettings:
   m_ObjectHideFlags: 0
-  serializedVersion: 8
+  serializedVersion: 9
   m_Fog: 0
   m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   m_FogMode: 3
@@ -38,7 +38,8 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311918, g: 0.3807398, b: 0.35872716, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
+  m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -54,11 +55,10 @@ LightmapSettings:
     m_EnableBakedLightmaps: 1
     m_EnableRealtimeLightmaps: 1
   m_LightmapEditorSettings:
-    serializedVersion: 9
+    serializedVersion: 10
     m_Resolution: 2
     m_BakeResolution: 40
-    m_TextureWidth: 1024
-    m_TextureHeight: 1024
+    m_AtlasSize: 1024
     m_AO: 0
     m_AOMaxDistance: 1
     m_CompAOExponent: 1
@@ -88,6 +88,7 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaDirect: 0.5
     m_PVRFilteringAtrousPositionSigmaIndirect: 2
     m_PVRFilteringAtrousPositionSigmaAO: 1
+    m_ShowResolutionOverlay: 1
   m_LightingDataAsset: {fileID: 0}
   m_UseShadowmask: 1
 --- !u!196 &4
@@ -157,6 +158,8 @@ MonoBehaviour:
   audioStep: {fileID: 8300000, guid: 4822386d1349565449c08417099261ae, type: 3}
   pose: 3
   changeColor: 0
+  stepPose: {fileID: 11400000, guid: b7d8118fcf33d4949a4bde2c64b7f6ca, type: 2}
+  arrowAttached: {fileID: 11400000, guid: 7d4b1e4830656d742beea95471468d58, type: 2}
 --- !u!1 &19779637
 GameObject:
   m_ObjectHideFlags: 0
@@ -209,6 +212,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &19779640
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -243,6 +247,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: b54e8804d3094284eb90ee577e77764a, type: 3}
   - {fileID: 21300000, guid: 8790ca5d543709242b4b1f8ef6d7980e, type: 3}
   - {fileID: 21300000, guid: d4cb026ad22fdf94994550977067a915, type: 3}
+  ArrowUp: {fileID: 11400000, guid: 7d4b1e4830656d742beea95471468d58, type: 2}
 --- !u!82 &19779641
 AudioSource:
   m_ObjectHideFlags: 0
@@ -272,54 +277,69 @@ AudioSource:
   rolloffCustomCurve:
     serializedVersion: 2
     m_Curve:
-    - serializedVersion: 2
+    - serializedVersion: 3
       time: 0
       value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
-    - serializedVersion: 2
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
       time: 1
       value: 0
       inSlope: 0
       outSlope: 0
       tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
   panLevelCustomCurve:
     serializedVersion: 2
     m_Curve:
-    - serializedVersion: 2
+    - serializedVersion: 3
       time: 0
       value: 0
       inSlope: 0
       outSlope: 0
       tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
   spreadCustomCurve:
     serializedVersion: 2
     m_Curve:
-    - serializedVersion: 2
+    - serializedVersion: 3
       time: 0
       value: 0
       inSlope: 0
       outSlope: 0
       tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
-    - serializedVersion: 2
+    - serializedVersion: 3
       time: 0
       value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
@@ -368,6 +388,8 @@ MonoBehaviour:
   audioStep: {fileID: 8300000, guid: 4822386d1349565449c08417099261ae, type: 3}
   pose: 3
   changeColor: 0
+  stepPose: {fileID: 11400000, guid: b7d8118fcf33d4949a4bde2c64b7f6ca, type: 2}
+  arrowAttached: {fileID: 11400000, guid: 7d4b1e4830656d742beea95471468d58, type: 2}
 --- !u!1 &127982618
 GameObject:
   m_ObjectHideFlags: 0
@@ -402,6 +424,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!212 &127982620
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -415,6 +438,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
@@ -495,6 +519,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
@@ -864,6 +889,7 @@ SpriteMask:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 10758, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
@@ -939,6 +965,8 @@ MonoBehaviour:
   audioStep: {fileID: 8300000, guid: 695b06661ec07574f8c27f0ed8c4f774, type: 3}
   pose: 4
   changeColor: 1
+  stepPose: {fileID: 11400000, guid: b7d8118fcf33d4949a4bde2c64b7f6ca, type: 2}
+  arrowAttached: {fileID: 11400000, guid: 7d4b1e4830656d742beea95471468d58, type: 2}
 --- !u!114 &191416152 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114822509481565812, guid: c08cde82454fb10429d63a6b110cc24b,
@@ -990,6 +1018,8 @@ MonoBehaviour:
   audioStep: {fileID: 8300000, guid: 695b06661ec07574f8c27f0ed8c4f774, type: 3}
   pose: 4
   changeColor: 1
+  stepPose: {fileID: 11400000, guid: b7d8118fcf33d4949a4bde2c64b7f6ca, type: 2}
+  arrowAttached: {fileID: 11400000, guid: 7d4b1e4830656d742beea95471468d58, type: 2}
 --- !u!1 &258341813 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1539496764130306, guid: 3de33a044ad4522439443b4426d36d25,
@@ -1008,6 +1038,7 @@ SpriteMask:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 10758, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
@@ -1062,6 +1093,7 @@ SpriteMask:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 10758, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
@@ -1137,6 +1169,8 @@ MonoBehaviour:
   audioStep: {fileID: 8300000, guid: aa28d8f3da8207940bf05e50e25ac3f6, type: 3}
   pose: 2
   changeColor: 1
+  stepPose: {fileID: 11400000, guid: b7d8118fcf33d4949a4bde2c64b7f6ca, type: 2}
+  arrowAttached: {fileID: 11400000, guid: 7d4b1e4830656d742beea95471468d58, type: 2}
 --- !u!1 &349315948
 GameObject:
   m_ObjectHideFlags: 0
@@ -1182,6 +1216,8 @@ MonoBehaviour:
   audioStep: {fileID: 8300000, guid: aa28d8f3da8207940bf05e50e25ac3f6, type: 3}
   pose: 2
   changeColor: 0
+  stepPose: {fileID: 11400000, guid: b7d8118fcf33d4949a4bde2c64b7f6ca, type: 2}
+  arrowAttached: {fileID: 11400000, guid: 7d4b1e4830656d742beea95471468d58, type: 2}
 --- !u!1 &359020941 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1951876889648424, guid: 3de33a044ad4522439443b4426d36d25,
@@ -1200,6 +1236,7 @@ SpriteMask:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 10758, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
@@ -1254,7 +1291,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 378698911}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -15, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: -27.2, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 694092312}
@@ -1331,6 +1368,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!4 &404192896
 Transform:
   m_ObjectHideFlags: 0
@@ -1390,6 +1428,8 @@ MonoBehaviour:
   audioStep: {fileID: 8300000, guid: 4822386d1349565449c08417099261ae, type: 3}
   pose: 3
   changeColor: 1
+  stepPose: {fileID: 11400000, guid: b7d8118fcf33d4949a4bde2c64b7f6ca, type: 2}
+  arrowAttached: {fileID: 11400000, guid: 7d4b1e4830656d742beea95471468d58, type: 2}
 --- !u!1 &435726946 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1685665355491570, guid: 3de33a044ad4522439443b4426d36d25,
@@ -1408,6 +1448,7 @@ SpriteMask:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 10758, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
@@ -1652,6 +1693,7 @@ SpriteMask:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 10758, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
@@ -1700,6 +1742,7 @@ SpriteMask:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 10758, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
@@ -1810,6 +1853,7 @@ SpriteMask:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 10758, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
@@ -1885,6 +1929,8 @@ MonoBehaviour:
   audioStep: {fileID: 8300000, guid: f1c3d6aadd05989478c0fb15f14c2e4f, type: 3}
   pose: 5
   changeColor: 0
+  stepPose: {fileID: 11400000, guid: b7d8118fcf33d4949a4bde2c64b7f6ca, type: 2}
+  arrowAttached: {fileID: 11400000, guid: 7d4b1e4830656d742beea95471468d58, type: 2}
 --- !u!1 &619482892
 GameObject:
   m_ObjectHideFlags: 0
@@ -1967,7 +2013,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 624793518}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -599.99994, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1273811840}
@@ -2035,6 +2081,7 @@ SpriteMask:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 10758, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
@@ -2110,6 +2157,8 @@ MonoBehaviour:
   audioStep: {fileID: 8300000, guid: a2e39ced5c2bb194ea20306e325c7d8d, type: 3}
   pose: 1
   changeColor: 0
+  stepPose: {fileID: 11400000, guid: b7d8118fcf33d4949a4bde2c64b7f6ca, type: 2}
+  arrowAttached: {fileID: 11400000, guid: 7d4b1e4830656d742beea95471468d58, type: 2}
 --- !u!1 &686155022 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1313016415192820, guid: 847714cdec57ef2408f7d38fefcc9493,
@@ -2132,6 +2181,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &694092311
 GameObject:
   m_ObjectHideFlags: 0
@@ -2159,7 +2209,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 694092311}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 528.67993, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 378698912}
@@ -2283,6 +2333,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
@@ -2351,6 +2402,7 @@ SpriteMask:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 10758, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
@@ -2426,6 +2478,8 @@ MonoBehaviour:
   audioStep: {fileID: 8300000, guid: f1c3d6aadd05989478c0fb15f14c2e4f, type: 3}
   pose: 5
   changeColor: 1
+  stepPose: {fileID: 11400000, guid: b7d8118fcf33d4949a4bde2c64b7f6ca, type: 2}
+  arrowAttached: {fileID: 11400000, guid: 7d4b1e4830656d742beea95471468d58, type: 2}
 --- !u!114 &891757531 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114355643150577238, guid: c08cde82454fb10429d63a6b110cc24b,
@@ -2489,6 +2543,8 @@ MonoBehaviour:
   audioStep: {fileID: 8300000, guid: 695b06661ec07574f8c27f0ed8c4f774, type: 3}
   pose: 4
   changeColor: 1
+  stepPose: {fileID: 11400000, guid: b7d8118fcf33d4949a4bde2c64b7f6ca, type: 2}
+  arrowAttached: {fileID: 11400000, guid: 7d4b1e4830656d742beea95471468d58, type: 2}
 --- !u!224 &1001131924 stripped
 RectTransform:
   m_PrefabParentObject: {fileID: 224208343299699342, guid: 847714cdec57ef2408f7d38fefcc9493,
@@ -2945,6 +3001,7 @@ SpriteMask:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 10758, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
@@ -3002,7 +3059,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _player: {fileID: 174519636}
-  gm: {fileID: 0}
+  gm: {fileID: 1516822711}
   _playerMask: {fileID: 1061949194}
   animator: {fileID: 19779639}
   currentPose: 0
@@ -3012,9 +3069,11 @@ MonoBehaviour:
   currentInitAnimation: []
   currentIdleAnimation: []
   currentReturnAnimation: []
-  currentStatus: 0
   currentSprite: 0
   timeBetweenSprites: 0.1
+  playingPose: {fileID: 11400000, guid: 90f08368907a46b46bf16adaa0f0f3f8, type: 2}
+  idlePose: {fileID: 11400000, guid: 90f08368907a46b46bf16adaa0f0f3f8, type: 2}
+  currentStatus: 0
 --- !u!1 &1117282342 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1262557304614264, guid: 3de33a044ad4522439443b4426d36d25,
@@ -3033,6 +3092,7 @@ SpriteMask:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 10758, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
@@ -3108,6 +3168,8 @@ MonoBehaviour:
   audioStep: {fileID: 8300000, guid: c4bcf914ec4ceeb478a33156881750c1, type: 3}
   pose: 6
   changeColor: 1
+  stepPose: {fileID: 11400000, guid: b7d8118fcf33d4949a4bde2c64b7f6ca, type: 2}
+  arrowAttached: {fileID: 11400000, guid: 7d4b1e4830656d742beea95471468d58, type: 2}
 --- !u!1 &1161014512 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1150149819922400, guid: 3de33a044ad4522439443b4426d36d25,
@@ -3126,6 +3188,7 @@ SpriteMask:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 10758, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
@@ -3201,6 +3264,8 @@ MonoBehaviour:
   audioStep: {fileID: 8300000, guid: a2e39ced5c2bb194ea20306e325c7d8d, type: 3}
   pose: 1
   changeColor: 0
+  stepPose: {fileID: 11400000, guid: b7d8118fcf33d4949a4bde2c64b7f6ca, type: 2}
+  arrowAttached: {fileID: 11400000, guid: 7d4b1e4830656d742beea95471468d58, type: 2}
 --- !u!1 &1196189756 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1518252394941924, guid: 3de33a044ad4522439443b4426d36d25,
@@ -3219,6 +3284,7 @@ SpriteMask:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 10758, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
@@ -3264,7 +3330,7 @@ Prefab:
     - target: {fileID: 224208343299699342, guid: 847714cdec57ef2408f7d38fefcc9493,
         type: 2}
       propertyPath: m_LocalPosition.y
-      value: -405
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224208343299699342, guid: 847714cdec57ef2408f7d38fefcc9493,
         type: 2}
@@ -3372,6 +3438,7 @@ SpriteMask:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 10758, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
@@ -3483,9 +3550,9 @@ RectTransform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1273811836}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 512, y: 320, z: 14.270854}
-  m_LocalScale: {x: 0.53333336, y: 0.53333336, z: 0.53333336}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 1001131924}
   - {fileID: 694092312}
@@ -3493,11 +3560,11 @@ RectTransform:
   m_Father: {fileID: 19779638}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0, y: 0}
 --- !u!1 &1291063897
 GameObject:
   m_ObjectHideFlags: 0
@@ -3530,6 +3597,8 @@ MonoBehaviour:
   audioStep: {fileID: 8300000, guid: f1c3d6aadd05989478c0fb15f14c2e4f, type: 3}
   pose: 5
   changeColor: 0
+  stepPose: {fileID: 11400000, guid: b7d8118fcf33d4949a4bde2c64b7f6ca, type: 2}
+  arrowAttached: {fileID: 11400000, guid: 7d4b1e4830656d742beea95471468d58, type: 2}
 --- !u!4 &1291063899
 Transform:
   m_ObjectHideFlags: 0
@@ -3666,6 +3735,7 @@ SpriteMask:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 10758, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
@@ -3714,6 +3784,7 @@ SpriteMask:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 10758, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
@@ -3762,6 +3833,7 @@ SpriteMask:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 10758, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
@@ -3810,6 +3882,7 @@ SpriteMask:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 10758, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
@@ -3858,6 +3931,7 @@ SpriteMask:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 10758, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
@@ -4016,6 +4090,7 @@ SpriteMask:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 10758, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
@@ -4070,6 +4145,7 @@ SpriteMask:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 10758, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
@@ -4123,6 +4199,7 @@ SpriteMask:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 10758, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
@@ -4171,6 +4248,7 @@ SpriteMask:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 10758, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
@@ -4314,6 +4392,8 @@ MonoBehaviour:
   audioStep: {fileID: 8300000, guid: c4bcf914ec4ceeb478a33156881750c1, type: 3}
   pose: 6
   changeColor: 1
+  stepPose: {fileID: 11400000, guid: b7d8118fcf33d4949a4bde2c64b7f6ca, type: 2}
+  arrowAttached: {fileID: 11400000, guid: 7d4b1e4830656d742beea95471468d58, type: 2}
 --- !u!114 &1701481661 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114427412911762014, guid: c08cde82454fb10429d63a6b110cc24b,
@@ -4338,6 +4418,7 @@ SpriteMask:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 10758, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
@@ -4413,6 +4494,8 @@ MonoBehaviour:
   audioStep: {fileID: 8300000, guid: c4bcf914ec4ceeb478a33156881750c1, type: 3}
   pose: 6
   changeColor: 1
+  stepPose: {fileID: 11400000, guid: b7d8118fcf33d4949a4bde2c64b7f6ca, type: 2}
+  arrowAttached: {fileID: 11400000, guid: 7d4b1e4830656d742beea95471468d58, type: 2}
 --- !u!1 &1770937910
 GameObject:
   m_ObjectHideFlags: 0
@@ -4478,6 +4561,7 @@ SpriteMask:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 10758, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
@@ -4613,54 +4697,69 @@ AudioSource:
   rolloffCustomCurve:
     serializedVersion: 2
     m_Curve:
-    - serializedVersion: 2
+    - serializedVersion: 3
       time: 0
       value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
-    - serializedVersion: 2
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
       time: 1
       value: 0
       inSlope: 0
       outSlope: 0
       tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
   panLevelCustomCurve:
     serializedVersion: 2
     m_Curve:
-    - serializedVersion: 2
+    - serializedVersion: 3
       time: 0
       value: 0
       inSlope: 0
       outSlope: 0
       tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
   spreadCustomCurve:
     serializedVersion: 2
     m_Curve:
-    - serializedVersion: 2
+    - serializedVersion: 3
       time: 0
       value: 0
       inSlope: 0
       outSlope: 0
       tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
-    - serializedVersion: 2
+    - serializedVersion: 3
       time: 0
       value: 0
       inSlope: 0
       outSlope: 0
       tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
@@ -4682,6 +4781,7 @@ SpriteMask:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 10758, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
@@ -4767,6 +4867,7 @@ SpriteMask:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 10758, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
@@ -4884,54 +4985,69 @@ AudioSource:
   rolloffCustomCurve:
     serializedVersion: 2
     m_Curve:
-    - serializedVersion: 2
+    - serializedVersion: 3
       time: 0
       value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
-    - serializedVersion: 2
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
       time: 1
       value: 0
       inSlope: 0
       outSlope: 0
       tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
   panLevelCustomCurve:
     serializedVersion: 2
     m_Curve:
-    - serializedVersion: 2
+    - serializedVersion: 3
       time: 0
       value: 0
       inSlope: 0
       outSlope: 0
       tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
   spreadCustomCurve:
     serializedVersion: 2
     m_Curve:
-    - serializedVersion: 2
+    - serializedVersion: 3
       time: 0
       value: 0
       inSlope: 0
       outSlope: 0
       tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
-    - serializedVersion: 2
+    - serializedVersion: 3
       time: 0
       value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
@@ -4998,6 +5114,7 @@ Camera:
   m_TargetEye: 3
   m_HDR: 1
   m_AllowMSAA: 1
+  m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
@@ -5068,6 +5185,7 @@ SpriteMask:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 10758, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
@@ -5110,7 +5228,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _player: {fileID: 174519636}
-  gm: {fileID: 0}
+  gm: {fileID: 1516822711}
   _playerMask: {fileID: 1912498007}
   animator: {fileID: 19779639}
   currentPose: 0
@@ -5120,9 +5238,11 @@ MonoBehaviour:
   currentInitAnimation: []
   currentIdleAnimation: []
   currentReturnAnimation: []
-  currentStatus: 0
   currentSprite: 0
   timeBetweenSprites: 0.1
+  playingPose: {fileID: 11400000, guid: 90f08368907a46b46bf16adaa0f0f3f8, type: 2}
+  idlePose: {fileID: 11400000, guid: 90f08368907a46b46bf16adaa0f0f3f8, type: 2}
+  currentStatus: 0
 --- !u!1 &1930176003
 GameObject:
   m_ObjectHideFlags: 0
@@ -5166,6 +5286,7 @@ SpriteMask:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 10758, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
@@ -5226,6 +5347,7 @@ SpriteMask:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 10758, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
@@ -5301,6 +5423,8 @@ MonoBehaviour:
   audioStep: {fileID: 8300000, guid: a2e39ced5c2bb194ea20306e325c7d8d, type: 3}
   pose: 1
   changeColor: 1
+  stepPose: {fileID: 11400000, guid: b7d8118fcf33d4949a4bde2c64b7f6ca, type: 2}
+  arrowAttached: {fileID: 11400000, guid: 7d4b1e4830656d742beea95471468d58, type: 2}
 --- !u!1 &1993325807
 GameObject:
   m_ObjectHideFlags: 0
@@ -5333,6 +5457,8 @@ MonoBehaviour:
   audioStep: {fileID: 8300000, guid: 42f1687e64ae14942999db721732d7db, type: 3}
   pose: 7
   changeColor: 1
+  stepPose: {fileID: 11400000, guid: b7d8118fcf33d4949a4bde2c64b7f6ca, type: 2}
+  arrowAttached: {fileID: 11400000, guid: 7d4b1e4830656d742beea95471468d58, type: 2}
 --- !u!4 &1993325809
 Transform:
   m_ObjectHideFlags: 0
@@ -5364,6 +5490,7 @@ SpriteMask:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 10758, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
@@ -5412,6 +5539,7 @@ SpriteMask:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 10758, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
@@ -5460,6 +5588,7 @@ SpriteMask:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 10758, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
@@ -5548,54 +5677,69 @@ AudioSource:
   rolloffCustomCurve:
     serializedVersion: 2
     m_Curve:
-    - serializedVersion: 2
+    - serializedVersion: 3
       time: 0
       value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
-    - serializedVersion: 2
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
       time: 1
       value: 0
       inSlope: 0
       outSlope: 0
       tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
   panLevelCustomCurve:
     serializedVersion: 2
     m_Curve:
-    - serializedVersion: 2
+    - serializedVersion: 3
       time: 0
       value: 0
       inSlope: 0
       outSlope: 0
       tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
   spreadCustomCurve:
     serializedVersion: 2
     m_Curve:
-    - serializedVersion: 2
+    - serializedVersion: 3
       time: 0
       value: 0
       inSlope: 0
       outSlope: 0
       tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
-    - serializedVersion: 2
+    - serializedVersion: 3
       time: 0
       value: 0
       inSlope: 0
       outSlope: 0
       tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
@@ -5644,6 +5788,8 @@ MonoBehaviour:
   audioStep: {fileID: 8300000, guid: aa28d8f3da8207940bf05e50e25ac3f6, type: 3}
   pose: 2
   changeColor: 0
+  stepPose: {fileID: 11400000, guid: b7d8118fcf33d4949a4bde2c64b7f6ca, type: 2}
+  arrowAttached: {fileID: 11400000, guid: 7d4b1e4830656d742beea95471468d58, type: 2}
 --- !u!1 &2091569763 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1977386726330868, guid: 3de33a044ad4522439443b4426d36d25,
@@ -5662,6 +5808,7 @@ SpriteMask:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 10758, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:

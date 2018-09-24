@@ -33,6 +33,9 @@ public class GUIController : MonoBehaviour {
     //Pools
     public Sprite[] backgrounds;
 
+    //PlaceHolder
+    public Pose ArrowUp;
+
 
     // Use this for initialization
     void Start () {
@@ -40,31 +43,28 @@ public class GUIController : MonoBehaviour {
 
     }
 	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 
     public void SolveBeat(bool perfect, int currentScore)
     {
   
         Step step = gm.currentStep;
-        switch(step.affectedPlayers)
+        switch(step.affectedPlayers) // Hay que meter el arrow
         {
             case 0:
-                P1.nextPose = step.pose;
-                P1.hasToChange = true;
+                P1.ChangePose(step.stepPose);
+                P2.ChangePose(step.arrowAttached);
+
+
                 break;
             case 1:
-                P2.nextPose = step.pose;
-                P2.hasToChange = true;
+                P2.ChangePose(step.stepPose);
+                P1.ChangePose(step.arrowAttached);
+
                 break;
             case 2:
-                P1.nextPose = step.pose;
-                P1.hasToChange = true;
+                P1.ChangePose(step.stepPose);
 
-                P2.nextPose = step.pose;
-                P2.hasToChange = true;
+                P2.ChangePose(step.stepPose);
                 break;
 
 

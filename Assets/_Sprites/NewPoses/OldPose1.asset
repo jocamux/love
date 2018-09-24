@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcbd08d59cf040e498f1f79c2a028ff8, type: 3}
+  m_Name: OldPose1
+  m_EditorClassIdentifier: 
+  namePose: 
+  justOnce: 0
+  initPose:
+  - {fileID: 21300000, guid: adcc773ec9da2ed4bbfb0e01a334056a, type: 3}
+  - {fileID: 21300000, guid: a152778b1264386499a5b63a140f8779, type: 3}
+  - {fileID: 21300000, guid: a9377b5660f9d9b42a60f0adaaed5a2a, type: 3}
+  - {fileID: 21300000, guid: 0acfbca92639a0e4582499731e5017b5, type: 3}
+  - {fileID: 21300000, guid: 9cd00155a027b0e4892d286097c4d2ac, type: 3}
+  - {fileID: 21300000, guid: fd9e57a1d25c4b14ea361ad4d47498eb, type: 3}
+  - {fileID: 21300000, guid: 9e04c6cbb5b433846b19ef479533491b, type: 3}
+  - {fileID: 21300000, guid: be1567dadbb2a83448e7a6308abeead5, type: 3}
+  loopPose:
+  - {fileID: 21300000, guid: d4e76c872470889468ba1d5b381590c4, type: 3}
+  - {fileID: 21300000, guid: 06849dfe53c6057419d04046aaa37582, type: 3}
+  extra: []

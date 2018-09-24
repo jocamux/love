@@ -19,11 +19,20 @@ public class Silouette : MonoBehaviour
     public Sprite[] currentInitAnimation;
     public Sprite[] currentIdleAnimation;
     public Sprite[] currentReturnAnimation;
-    public int currentStatus; //will be private. 0 = init; 1= idle; 2=return;
     public int currentSprite;
 
 
     public float timeBetweenSprites;
+
+    // #### NEW CODING ####
+    public Pose playingPose;
+    Pose followingPose;
+    public Pose idlePose;
+    bool hasStartedChange;
+
+    public int currentStatus; //will be private. 0 = init; 1= idle; 2=return; 3= change pose; 4= keep in loop
+    int currentFrame;
+
 
     void Start()
     {
@@ -43,22 +52,95 @@ public class Silouette : MonoBehaviour
     void Update()
     {
         time += Time.deltaTime;
-        if (hasToChange)
-        {
-            ChangePose(nextPose);
-        }
-        if (time > timeBetweenSprites)
+
+        if (time > timeBetweenSprites) // Change frame
         {
             time -= timeBetweenSprites;
             ChangeSprite();
         }
+
+        /*if (hasToChange)
+        {
+            ChangePose(nextPose);
+        }*/
+
     }
 
     void ChangeSprite()
     {
         switch (currentStatus)
         {
+            case 4: // Keep in Loop
+                currentFrame++;
+                currentFrame %= playingPose.loopPose.Length;
+                _playerMask.sprite = playingPose.loopPose[currentFrame];
+                break;
+            case 3: // Change Pose.
+                if (hasStartedChange)
+                {
+                    if (currentFrame == 0)
+                    {
+                        _playerMask.sprite = idlePose.loopPose[0];
+                        playingPose = followingPose;
+                        currentStatus = 0;
+
+                    }
+                    else
+                    {
+                        currentFrame--;
+                        _playerMask.sprite = playingPose.initPose[currentFrame];
+
+                    }
+                }
+                else if (currentFrame==0)
+                {
+                    hasStartedChange = true;
+                    if(playingPose.initPose.Length == 0) return;
+
+                    currentFrame = playingPose.initPose.Length - 1;
+                    Debug.Log(currentFrame);
+                    _playerMask.sprite = playingPose.initPose[currentFrame];
+                }
+                else
+                {
+                    if (playingPose.justOnce)
+                    {
+                        currentStatus = 3;
+                        currentFrame--;
+                        _playerMask.sprite = playingPose.initPose[currentFrame];
+                        return;
+
+                    }
+                    currentFrame++;
+                    currentFrame %= playingPose.loopPose.Length;
+                    _playerMask.sprite = playingPose.loopPose[currentFrame];
+                }
+                break;
             case 0: //Init Animation
+                if(currentFrame>playingPose.initPose.Length-1)
+                {
+                    if (playingPose.justOnce)
+                    {
+                        currentStatus = 3;
+                        currentFrame--;
+                        _playerMask.sprite = playingPose.initPose[currentFrame];
+                        return;
+
+                    }
+                    currentFrame = 0;
+                    currentStatus = 4;
+                    _playerMask.sprite = playingPose.loopPose[currentFrame];
+
+
+                }
+                else
+                {
+                    _playerMask.sprite = playingPose.initPose[currentFrame];
+                    currentFrame++;
+
+                }
+                break;
+                /*
                 if (currentInitAnimation.Length == 0) return;
                 _playerMask.sprite = currentInitAnimation[currentSprite];
                 currentSprite++;
@@ -86,12 +168,18 @@ public class Silouette : MonoBehaviour
                     ChangeReturn(nextPose);
                 }
                 break;
+                */
         }
 
     }
 
-    void ChangePose(int pose)
+    public void ChangePose(Pose nextPose)
     {
+        followingPose = nextPose;
+        // #### NEW CODING ####
+        hasStartedChange = false;
+        currentStatus = 3;
+        /*
         hasToChange = false;
         isIdle = false;
         currentSprite = 0;
@@ -138,7 +226,7 @@ public class Silouette : MonoBehaviour
                     _player.Pose9.CopyTo(currentInitAnimation, 0);
                     break;
             }
-        }
+        }*/
     } //First change, happens when triggered. Turns hasToChange = true
 
     void ChangeIdle(int pose)

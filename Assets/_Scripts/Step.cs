@@ -10,6 +10,8 @@ public class Step: MonoBehaviour
     public AudioClip audioStep;
     public int pose;
     public bool changeColor;
+    public Pose stepPose;
+    public Pose arrowAttached;
     
     /*
      * Pose 1 - Drake (Down)
