@@ -50,6 +50,7 @@ public class GameManager : MonoBehaviour {
     // Use this for initialization
     //######### NEW CODING #########
     #region NewCoding
+
     public void CorrectBeat()
     {
         tc.solvedBeat = true;

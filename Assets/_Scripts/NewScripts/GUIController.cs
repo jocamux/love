@@ -6,43 +6,56 @@ using UnityEngine.UI;
 
 public class GUIController : MonoBehaviour {
 
-    public TimeController tc;
-    public BeatController bc;
-    public Animator cameraAnimator;
+    // #### POLISHED CODE #### 
+
     public GameManager gm;
 
     //ScreenElements
+    public Animator cameraAnimator;
     public Animator canvasAnimator;
-    public Silouette P1;
-    public Silouette P2;
+
+    public Silouette P1Silouette;
+    public Silouette P2Silouette;
+
     public Text score;
+
     public GameObject bg1;
     public GameObject bg2;
-    public Image bg3;
-    public Image bg4;
+    public Image scoreColor;
 
 
     //AudioElements
-    public AudioSource bso;
+    public Song currentSong;
+    public AudioSource levelMusic;
+
     public AudioSource P1Audio;
     public AudioSource P2Audio;
+
     public AudioSource changePhaseAudio;
+
     public AudioClip[] changePhaseClips;
     public AudioClip gameOverMusic;
 
     //Pools
     public Sprite[] backgrounds;
+    public Pose[] arrows; //up, down, left, right
 
-    //PlaceHolder
-    public Pose ArrowUp;
 
 
     // Use this for initialization
     void Start () {
-        changePhaseClips = tc.currentSong.changePhaseClips;
+        changePhaseClips = currentSong.changePhaseClips;
+        ChooseBackground();
 
     }
 	
+    public void ChooseBackground() //This method works while backgrounds are static coloured.
+    {
+        Sprite chosenbg = backgrounds[Random.Range(0, backgrounds.Length)];
+        bg1.GetComponent<SpriteRenderer>().sprite = chosenbg;
+        bg2.GetComponent<SpriteRenderer>().sprite = chosenbg;
+        scoreColor.sprite = chosenbg;
+    }
 
     public void SolveBeat(bool perfect, int currentScore)
     {
@@ -51,31 +64,28 @@ public class GUIController : MonoBehaviour {
         switch(step.affectedPlayers) // Hay que meter el arrow
         {
             case 0:
-                P1.ChangePose(step.stepPose);
-                P2.ChangePose(step.arrowAttached);
+                P1Silouette.ChangePose(step.stepPose);
+                P2Silouette.ChangePose(step.arrowAttached);
 
 
                 break;
             case 1:
-                P2.ChangePose(step.stepPose);
-                P1.ChangePose(step.arrowAttached);
+                P2Silouette.ChangePose(step.stepPose);
+                P1Silouette.ChangePose(step.arrowAttached);
 
                 break;
             case 2:
-                P1.ChangePose(step.stepPose);
+                P1Silouette.ChangePose(step.stepPose);
 
-                P2.ChangePose(step.stepPose);
+                P2Silouette.ChangePose(step.stepPose);
                 break;
 
 
         }
         if(step.changeColor)
         {
-            Sprite chosenbg = backgrounds[Random.Range(0, backgrounds.Length)];
-            bg1.GetComponent<SpriteRenderer>().sprite = chosenbg;
-            bg2.GetComponent<SpriteRenderer>().sprite = chosenbg;
-            bg3.sprite = chosenbg;
-            bg4.sprite = chosenbg;
+            ChooseBackground();
+
         }
         cameraAnimator.SetTrigger("Shake");
         score.text = currentScore.ToString();
@@ -91,12 +101,12 @@ public class GUIController : MonoBehaviour {
     {
 
 
-        P2.nextPose = 9;
-        P2.hasToChange = true;
-        bso.Stop();
-        bso.clip = gameOverMusic;
+        P2Silouette.nextPose = 9;
+        P2Silouette.hasToChange = true;
+        levelMusic.Stop();
+        levelMusic.clip = gameOverMusic;
         //bso.loop = true;
-        bso.Play();
+        levelMusic.Play();
 
         canvasAnimator.SetTrigger("TryAgain");
         

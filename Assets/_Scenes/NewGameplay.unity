@@ -192,6 +192,7 @@ Transform:
   - {fileID: 1061949195}
   - {fileID: 1273811840}
   - {fileID: 1912498005}
+  - {fileID: 1884889597}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -225,7 +226,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tc: {fileID: 483274605}
-  bc: {fileID: 0}
   cameraAnimator: {fileID: 404192895}
   gm: {fileID: 1516822711}
   canvasAnimator: {fileID: 19779639}
@@ -236,6 +236,7 @@ MonoBehaviour:
   bg2: {fileID: 725900814}
   bg3: {fileID: 378698913}
   bg4: {fileID: 378698913}
+  currentSong: {fileID: 1884889596}
   bso: {fileID: 1884889598}
   P1Audio: {fileID: 2032743977}
   P2Audio: {fileID: 1833526736}
@@ -4070,7 +4071,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1615163729 stripped
 GameObject:
@@ -4946,15 +4947,15 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1884889595}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -193.80954, y: 171.98636, z: -13.37878}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -193.80954, y: 171.98636, z: 0.89207363}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 581595575}
   - {fileID: 619482893}
   - {fileID: 478071137}
-  m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_Father: {fileID: 19779638}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &1884889598
 AudioSource:

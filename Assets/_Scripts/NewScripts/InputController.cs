@@ -6,7 +6,16 @@ public class InputController : MonoBehaviour {
 
     public KeyCode pause;
     public KeyCode restart;
-    public KeyCode[] gameplayButtons;
+
+    public enum ControllerUsed
+    {
+        Keyboard,
+        OneXboxController,
+        TwoXboxControllers,
+    }
+
+    public ControllerUsed activeController;
+    public KeyCode[] gameplayButtons; 
     public  int[] currentInput = new int[8] { 0, 0, 0, 0, 0, 0, 0, 0 };
     public  int[] correctInput = new int[8] { 0, 0, 0, 0, 0, 0, 0, 0 };
 
@@ -15,7 +24,11 @@ public class InputController : MonoBehaviour {
     public TimeController tc;
     public GameManager gc;
 
-	void Update () {
+    private void Start()
+    {
+        
+    }
+    void Update () {
 
         if(Input.GetKeyDown(pause))
         {
