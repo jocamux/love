@@ -12,6 +12,7 @@ public class Step: MonoBehaviour
     public bool changeColor;
     public Pose stepPose;
     public Pose arrowAttached;
+    public string animationTrigger;
     
     /*
      * Pose 1 - Drake (Down)

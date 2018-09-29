@@ -16,8 +16,12 @@ public class GameManager : MonoBehaviour {
     public TimeController tc;
     public GUIController GUIc;
     public InputController ic;
-    public Step currentStep;
+    public Step currentStep; //deprecated
+    public StepSO currentStepSO;
 
+    CheatSheet cheatSheet;
+    public bool neverEnds;
+    bool cheatMode = false;
     //##############################
     /*public GameObject bSO;
     public AudioClip music;
@@ -48,9 +52,20 @@ public class GameManager : MonoBehaviour {
     bool death = false;*/
 
     // Use this for initialization
+    public void Start()
+    {
+        if (gameObject.GetComponent<CheatSheet>() != null )
+        {
+
+        }
+    }
     //######### NEW CODING #########
     #region NewCoding
-
+    public void ActivateCheatMode()
+    {
+        cheatMode = true;
+        neverEnds = true;
+    }
     public void CorrectBeat()
     {
         tc.solvedBeat = true;
@@ -91,22 +106,37 @@ public class GameManager : MonoBehaviour {
 
     public void GameOver()
     {
-        Debug.Log("gameOver");
-        GUIc.GameOverFeedback();
-        gameOver = true;
+        if(!neverEnds)
+        {
+            GUIc.GameOverFeedback();
+            gameOver = true;
+        }
+
 
     }
 
-    public void TryAgain()
+    public void TryAgain() //Restart
     {
-        SceneManager.LoadScene("NewGameplay");
+        gameOver = false;
+        score = 0;
+        if(cheatMode)
+        {
+            neverEnds = true;
+        }
+        GUIc.TryAgainFeedback();
+        tc.RestartTime();
+        tc.currentSong.Start();
+
+
+        //SceneManager.LoadScene("NewGameplay");
     }
 
     public void SendOrder(Song currentSong, int currentPhase)
     {
-        currentStep = currentSong.songPhasesSteps[(currentPhase - 1) / 2].GetRandomStep();
-        GUIc.PlayOrderSound(currentStep);
-        ic.AddPossibleInputs(currentStep.getRequiredInput().GetKeyCode());
+        //currentStep = currentSong.songPhasesSteps[(currentPhase - 1) / 2].GetRandomStep(); //deprecated
+        currentStepSO = currentSong.songPhasesSteps[(currentPhase - 1) / 2].GetRandomStepSO();
+        GUIc.PlayOrderSound(currentStepSO);
+        ic.AddPossibleInputs(currentStepSO.possibleInputPlaceHolder);
     }
 
     //##############################

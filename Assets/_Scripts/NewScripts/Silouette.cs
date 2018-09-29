@@ -26,7 +26,7 @@ public class Silouette : MonoBehaviour
 
     // #### NEW CODING ####
     public Pose playingPose;
-    Pose followingPose;
+    public Pose followingPose;
     public Pose idlePose;
     bool hasStartedChange;
 
@@ -36,17 +36,18 @@ public class Silouette : MonoBehaviour
 
     void Start()
     {
-        currentInitAnimation = new Sprite[_player.Pose0Idle.Length];
-        _player.Pose0Idle.CopyTo(currentInitAnimation, 0);
+        /* currentInitAnimation = new Sprite[_player.Pose0Idle.Length];
+         _player.Pose0Idle.CopyTo(currentInitAnimation, 0);
 
-        currentIdleAnimation = new Sprite[_player.Pose0Idle.Length];
-        _player.Pose0Idle.CopyTo(currentIdleAnimation, 0);
+         currentIdleAnimation = new Sprite[_player.Pose0Idle.Length];
+         _player.Pose0Idle.CopyTo(currentIdleAnimation, 0);
 
-        currentReturnAnimation = new Sprite[_player.Pose0Idle.Length];
-        _player.Pose0Idle.CopyTo(currentReturnAnimation, 0);
+         currentReturnAnimation = new Sprite[_player.Pose0Idle.Length];
+         _player.Pose0Idle.CopyTo(currentReturnAnimation, 0);
+          */
         currentSprite = 0;
         time = 0;
-
+       
     }
 
     void Update()
@@ -97,7 +98,7 @@ public class Silouette : MonoBehaviour
                     hasStartedChange = true;
                     if(playingPose.initPose.Length == 0) return;
 
-                    currentFrame = playingPose.initPose.Length - 1;
+                    currentFrame = playingPose.rewindFirstFrame;
                     Debug.Log(currentFrame);
                     _playerMask.sprite = playingPose.initPose[currentFrame];
                 }

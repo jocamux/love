@@ -7,6 +7,7 @@ public class Phase : MonoBehaviour
     //GameManager gameManager;
 
     public List<Step> possibleSteps;
+    public List<StepSO> possibleStepsSO;
     public List<int> probability;
     public float time;
 
@@ -22,7 +23,7 @@ public class Phase : MonoBehaviour
 
     }
 
-    public Phase(List <Step> steps, List <int> prob, float t)
+    public Phase(List<Step> steps, List<StepSO> stepsSO, List <int> prob, float t)
     {
         possibleSteps = steps;
         probability = prob;
@@ -44,6 +45,26 @@ public class Phase : MonoBehaviour
         {
             if (aux[k] > ran) return possibleSteps[k];
         }
+        return null;
+    }
+
+    public StepSO GetRandomStepSO()
+    {
+        int sum = 0;
+        int[] aux = new int[probability.Capacity];
+        for (int k = 0; k < probability.Capacity; ++k)
+        {
+            sum += probability[k];
+            aux[k] = sum;
+        }
+
+        int ran = Random.Range(0, sum);
+        for (int k = 0; k < aux.Length; ++k)
+        {
+            if (aux[k] > ran) return possibleStepsSO[k];
+            
+        }
+        Debug.Log("peroqué");
         return null;
     }
 

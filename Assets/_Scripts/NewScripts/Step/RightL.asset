@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bcd13292884c1d4aabccd31a93b0b6d, type: 3}
+  m_Name: RightL
+  m_EditorClassIdentifier: 
+  indexInput: 0
+  keycodes: 03000000
+  possibleInputPlaceHolder: 64000000
+  affectedPlayers: 0
+  audioStep: {fileID: 8300000, guid: 4822386d1349565449c08417099261ae, type: 3}
+  pose:
+  - {fileID: 11400000, guid: 9a58997e38272b041aabcd6d86441432, type: 2}
+  - {fileID: 11400000, guid: 9702e36d883aea845a92b9bb6c078bab, type: 2}
+  animationTrigger: RightChar_RIGHT
+  changeColor: 0

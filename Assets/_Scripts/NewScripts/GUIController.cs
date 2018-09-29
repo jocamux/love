@@ -46,9 +46,13 @@ public class GUIController : MonoBehaviour {
     void Start () {
         changePhaseClips = currentSong.changePhaseClips;
         ChooseBackground();
+        P1Silouette.playingPose = P1Silouette.idlePose;
+        P2Silouette.playingPose = P1Silouette.idlePose;
+
+
 
     }
-	
+
     public void ChooseBackground() //This method works while backgrounds are static coloured.
     {
         Sprite chosenbg = backgrounds[Random.Range(0, backgrounds.Length)];
@@ -59,30 +63,20 @@ public class GUIController : MonoBehaviour {
 
     public void SolveBeat(bool perfect, int currentScore)
     {
-  
+
+
         Step step = gm.currentStep;
-        switch(step.affectedPlayers) // Hay que meter el arrow
+        StepSO stepSO = gm.currentStepSO;
+
+        P1Silouette.ChangePose(stepSO.pose[0]);
+        P2Silouette.ChangePose(stepSO.pose[1]);
+        if (stepSO.animationTrigger!=null)
         {
-            case 0:
-                P1Silouette.ChangePose(step.stepPose);
-                P2Silouette.ChangePose(step.arrowAttached);
-
-
-                break;
-            case 1:
-                P2Silouette.ChangePose(step.stepPose);
-                P1Silouette.ChangePose(step.arrowAttached);
-
-                break;
-            case 2:
-                P1Silouette.ChangePose(step.stepPose);
-
-                P2Silouette.ChangePose(step.stepPose);
-                break;
-
+            canvasAnimator.SetTrigger(stepSO.animationTrigger);
 
         }
-        if(step.changeColor)
+
+        if(stepSO.changeColor)
         {
             ChooseBackground();
 
@@ -112,7 +106,36 @@ public class GUIController : MonoBehaviour {
         
     }
 
-    public void PlayOrderSound(Step step)
+    public void TryAgainFeedback()
+    {
+        canvasAnimator.SetTrigger("Restart");
+        Start();
+    }
+    
+
+
+    public void PlayOrderSound(StepSO step)
+    {
+        int affectedPlayer = step.affectedPlayers;
+        switch (affectedPlayer)
+        {
+            case 0:
+                P1Audio.clip = step.audioStep;
+                P1Audio.Play();
+                break;
+            case 1:
+                P2Audio.clip = step.audioStep;
+                P2Audio.Play();
+                break;
+            case 2:
+                P1Audio.clip = step.audioStep;
+                P1Audio.Play();
+                P2Audio.clip = step.audioStep;
+                P2Audio.Play();
+                break;
+        }
+    }
+    public void PlayOrderSound(Step step) //deprecated
     {
         int affectedPlayer = step.affectedPlayers;
         switch (affectedPlayer)

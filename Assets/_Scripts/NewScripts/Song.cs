@@ -16,7 +16,7 @@ public class Song : MonoBehaviour {
     public Phase[] songPhasesSteps;
 
     // Use this for initialization
-    void Start () {
+    public void Start () {
 		if (beatPerPhase.Length != toleratesInput.Length)
         {
             Debug.Log("Missing Song Information. Is the script properly filled?");

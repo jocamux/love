@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 687c0c43bc0e18247ac0fd96d80a6f93, type: 3}
+  m_Name: VerticalPose
+  m_EditorClassIdentifier: 
+  namePose: 
+  justOnce: 0
+  initPose:
+  - {fileID: 21300000, guid: bdf6806e50bb1c64aab30871a955c25a, type: 3}
+  - {fileID: 21300000, guid: 6e763d01ebabda443a7ec78bec9c154e, type: 3}
+  - {fileID: 21300000, guid: ae11914f89fc6994090f48b30a6f251a, type: 3}
+  - {fileID: 21300000, guid: cb5af39bf4faed34f9ca13475be56cd7, type: 3}
+  - {fileID: 21300000, guid: a065cba529b1f0545a970854395eb09c, type: 3}
+  - {fileID: 21300000, guid: 6813f350ace6fd043bc41771f8c63dc3, type: 3}
+  - {fileID: 21300000, guid: 280945458864e3842b5ec4770ac50256, type: 3}
+  - {fileID: 21300000, guid: b90fecf0fd2ccae4a97b2505383bd38f, type: 3}
+  - {fileID: 21300000, guid: 36a75e3ed5b929d4e81ea4ed9b0c4563, type: 3}
+  - {fileID: 21300000, guid: 46a79f7772851064ea7a01dabed43827, type: 3}
+  - {fileID: 21300000, guid: e636a823dc02114488ea203c479b36e6, type: 3}
+  - {fileID: 21300000, guid: 85676c15caeb9644ba93435d68fb0c97, type: 3}
+  - {fileID: 21300000, guid: 9ac32e06c30e94d4f9b1a41d38c2b72e, type: 3}
+  - {fileID: 21300000, guid: d865caac40629704f82cdea7389de41e, type: 3}
+  - {fileID: 21300000, guid: 9ac32e06c30e94d4f9b1a41d38c2b72e, type: 3}
+  - {fileID: 21300000, guid: 85676c15caeb9644ba93435d68fb0c97, type: 3}
+  - {fileID: 21300000, guid: e636a823dc02114488ea203c479b36e6, type: 3}
+  - {fileID: 21300000, guid: 46a79f7772851064ea7a01dabed43827, type: 3}
+  loopPose:
+  - {fileID: 21300000, guid: 6813f350ace6fd043bc41771f8c63dc3, type: 3}
+  - {fileID: 21300000, guid: 6813f350ace6fd043bc41771f8c63dc3, type: 3}
+  - {fileID: 21300000, guid: 280945458864e3842b5ec4770ac50256, type: 3}
+  - {fileID: 21300000, guid: b90fecf0fd2ccae4a97b2505383bd38f, type: 3}
+  extra: []
+  rewindFirstFrame: 0

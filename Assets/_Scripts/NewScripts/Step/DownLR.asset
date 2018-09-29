@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bcd13292884c1d4aabccd31a93b0b6d, type: 3}
+  m_Name: DownLR
+  m_EditorClassIdentifier: 
+  indexInput: 0
+  keycodes: 0100000005000000
+  possibleInputPlaceHolder: 7300000067000000
+  affectedPlayers: 2
+  audioStep: {fileID: 8300000, guid: a2e39ced5c2bb194ea20306e325c7d8d, type: 3}
+  pose:
+  - {fileID: 11400000, guid: 7e26acc36e1591b45b085005c272b8c5, type: 2}
+  - {fileID: 11400000, guid: 7e26acc36e1591b45b085005c272b8c5, type: 2}
+  animationTrigger: 
+  changeColor: 1

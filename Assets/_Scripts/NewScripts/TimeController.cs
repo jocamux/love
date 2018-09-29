@@ -50,7 +50,7 @@ public class TimeController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
+        
         if (gm.gameOver) return;
         currentTime += Time.deltaTime;
         currentBeatTime = currentTime % beatDuration;
@@ -91,6 +91,7 @@ public class TimeController : MonoBehaviour {
 
         if (lastIterationBeatDuration > currentBeatTime)  //new beat
         {
+            lastIterationBeatDuration = 0;
             AddBeat();
         }
 
@@ -100,7 +101,6 @@ public class TimeController : MonoBehaviour {
 
     void AddBeat()
     {
-
         currentBeatInThisPhase++;
         currentBeat++;
         checkedBeat = false;
@@ -134,6 +134,10 @@ public class TimeController : MonoBehaviour {
         }
     }
 
+    public void RestartTime()
+    {
+        Start();
+    }
     void EndSong()
     {
 
