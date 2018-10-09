@@ -25,3 +25,4 @@ MonoBehaviour:
   - {fileID: 21300000, guid: d4fc6e9520da9a44793f2b566c1f14d7, type: 3}
   loopPose: []
   extra: []
+  rewindFirstFrame: 0

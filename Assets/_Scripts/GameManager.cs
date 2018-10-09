@@ -117,7 +117,8 @@ public class GameManager : MonoBehaviour {
 
     public void TryAgain() //Restart
     {
-        gameOver = false;
+        SceneManager.LoadScene("NewGameplay");
+        /*gameOver = false;
         score = 0;
         if(cheatMode)
         {
@@ -125,7 +126,7 @@ public class GameManager : MonoBehaviour {
         }
         GUIc.TryAgainFeedback();
         tc.RestartTime();
-        tc.currentSong.Start();
+        tc.currentSong.Start();*/
 
 
         //SceneManager.LoadScene("NewGameplay");

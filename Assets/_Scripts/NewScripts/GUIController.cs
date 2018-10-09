@@ -94,7 +94,7 @@ public class GUIController : MonoBehaviour {
     public void GameOverFeedback()
     {
 
-
+        P2Silouette.ChangePose(P2Silouette.deathPose);
         P2Silouette.nextPose = 9;
         P2Silouette.hasToChange = true;
         levelMusic.Stop();

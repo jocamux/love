@@ -3,7 +3,7 @@
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
@@ -31,4 +31,4 @@ MonoBehaviour:
   - {fileID: 21300000, guid: a380306d4339fad4abdf9c4f84c5f720, type: 3}
   - {fileID: 21300000, guid: 1bbde3c57b19a9848be06073852f9354, type: 3}
   extra: []
-  rewindFirstFrame: 8
+  rewindFirstFrame: 2

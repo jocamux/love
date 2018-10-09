@@ -18,6 +18,6 @@ MonoBehaviour:
   audioStep: {fileID: 8300000, guid: a2e39ced5c2bb194ea20306e325c7d8d, type: 3}
   pose:
   - {fileID: 11400000, guid: 7e26acc36e1591b45b085005c272b8c5, type: 2}
-  - {fileID: 11400000, guid: 9702e36d883aea845a92b9bb6c078bab, type: 2}
+  - {fileID: 11400000, guid: 6ec14f8abb24ac44bb9b0977c42544aa, type: 2}
   animationTrigger: RightChar_DOWN
   changeColor: 0

@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 687c0c43bc0e18247ac0fd96d80a6f93, type: 3}
+  m_Name: ArrowLeft
+  m_EditorClassIdentifier: 
+  namePose: 
+  justOnce: 0
+  initPose:
+  - {fileID: 21300000, guid: db8a6bae9d4856442a8abdee90c3a01d, type: 3}
+  - {fileID: 21300000, guid: 932e26f20dd295f4d95e2b35bac401d2, type: 3}
+  - {fileID: 21300000, guid: 3862eadffa3aa1b4ab76627c26c31cac, type: 3}
+  - {fileID: 21300000, guid: b1b81b88f4d89ad498a0adaff3150491, type: 3}
+  - {fileID: 21300000, guid: 1301a19617e74a3409506b0754285db5, type: 3}
+  - {fileID: 21300000, guid: 9489732d56e92904d80c5fed7d677ad4, type: 3}
+  - {fileID: 21300000, guid: 80ef240b370b323499ebda97e1386b57, type: 3}
+  - {fileID: 21300000, guid: a946d90faea54a6498afdfbaa9e0ac4f, type: 3}
+  - {fileID: 21300000, guid: d16db2d1600f85f4a9388e6fd082ec0b, type: 3}
+  - {fileID: 21300000, guid: ddc3c5e7341f9b140837a50c66445ca9, type: 3}
+  loopPose:
+  - {fileID: 21300000, guid: f43ad69c8fdbd0a4da7d54c48e0d9d40, type: 3}
+  - {fileID: 21300000, guid: 2f132c1e185b1234d9ffe4bf3be7a022, type: 3}
+  - {fileID: 21300000, guid: 50614ba658310384796332688741a079, type: 3}
+  - {fileID: 21300000, guid: 37d8efba18553dc4eb1ca3dd1c34732a, type: 3}
+  - {fileID: 21300000, guid: a380306d4339fad4abdf9c4f84c5f720, type: 3}
+  - {fileID: 21300000, guid: 1bbde3c57b19a9848be06073852f9354, type: 3}
+  extra: []
+  rewindFirstFrame: 2

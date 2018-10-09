@@ -26,6 +26,12 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 909c52fc876d2f44a95a480965584a1e, type: 3}
   - {fileID: 21300000, guid: 5e7c52b92aa7cdd4fa08c44b11abcca9, type: 3}
   - {fileID: 21300000, guid: 54fb7b4815bfeac4a988e743e73d7df8, type: 3}
-  loopPose: []
+  loopPose:
+  - {fileID: 21300000, guid: d8020d5e834bf264b93f0c726a66b7b2, type: 3}
+  - {fileID: 21300000, guid: 019ae4c2131d1a34987a7a10927a8ea8, type: 3}
+  - {fileID: 21300000, guid: 12cdd61e36440744099409651e116170, type: 3}
+  - {fileID: 21300000, guid: 37d8efba18553dc4eb1ca3dd1c34732a, type: 3}
+  - {fileID: 21300000, guid: dcca063eecfc68c49ae6a12ade09ed89, type: 3}
+  - {fileID: 21300000, guid: a380306d4339fad4abdf9c4f84c5f720, type: 3}
   extra: []
   rewindFirstFrame: 0

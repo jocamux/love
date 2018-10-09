@@ -26,7 +26,24 @@ public class InputController : MonoBehaviour {
 
     private void Start()
     {
-        
+        if (activeController == ControllerUsed.Keyboard) return;
+        else if (activeController == ControllerUsed.TwoXboxControllers)
+        {
+            gameplayButtons[0] = KeyCode.Joystick1Button1;
+            gameplayButtons[1] = KeyCode.Joystick1Button2;
+            gameplayButtons[2] = KeyCode.Joystick1Button3;
+            gameplayButtons[3] = KeyCode.Joystick1Button0;
+
+            gameplayButtons[4] = KeyCode.Joystick2Button1;
+            gameplayButtons[5] = KeyCode.Joystick2Button2;
+            gameplayButtons[6] = KeyCode.Joystick2Button3;
+            gameplayButtons[7] = KeyCode.Joystick2Button0;
+
+        }
+        else
+        {
+           //To be implemented;
+        }
     }
     void Update () {
 

@@ -15,7 +15,7 @@ MonoBehaviour:
   keycodes: 00000000
   possibleInputPlaceHolder: 77000000
   affectedPlayers: 0
-  audioStep: {fileID: 8300000, guid: aa28d8f3da8207940bf05e50e25ac3f6, type: 3}
+  audioStep: {fileID: 8300000, guid: 898a04af969149640a1ecc5f2ac8bef2, type: 3}
   pose:
   - {fileID: 11400000, guid: 0458666cc997c254fac0d1e30ec3c573, type: 2}
   - {fileID: 11400000, guid: 9702e36d883aea845a92b9bb6c078bab, type: 2}

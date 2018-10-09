@@ -28,6 +28,7 @@ public class Silouette : MonoBehaviour
     public Pose playingPose;
     public Pose followingPose;
     public Pose idlePose;
+    public Pose deathPose;
     bool hasStartedChange;
 
     public int currentStatus; //will be private. 0 = init; 1= idle; 2=return; 3= change pose; 4= keep in loop

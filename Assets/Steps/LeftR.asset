@@ -17,7 +17,7 @@ MonoBehaviour:
   affectedPlayers: 1
   audioStep: {fileID: 8300000, guid: f1c3d6aadd05989478c0fb15f14c2e4f, type: 3}
   pose:
-  - {fileID: 11400000, guid: 9702e36d883aea845a92b9bb6c078bab, type: 2}
+  - {fileID: 11400000, guid: 710e356ec1ee27045aea8d74e3461ead, type: 2}
   - {fileID: 11400000, guid: 6142471a6c0a389408516d1ecc474130, type: 2}
   animationTrigger: LeftChar_LEFT
   changeColor: 0
