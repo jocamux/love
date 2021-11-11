@@ -3,7 +3,7 @@
 <p align="center"> If you want to see the Global Game Jam site and download the exe: https://globalgamejam.org/2018/games/l-l-love</p>
 <br><br>
 
-<p align="center"> <a href="https://www.youtube.com/watch?v=Fb5xZP7oijY" target="_blank" rel="noopener noreferrer">
+<p align="center"> <a href="https://www.youtube.com/watch?v=Fb5xZP7oijY" target="_blank">
   <img src="https://img.youtube.com/vi/Fb5xZP7oijY/maxresdefault.jpg" alt="l-l-love demo video" width="640px" height="360px" >
 </a></p>
 
